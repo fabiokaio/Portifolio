@@ -1,0 +1,286 @@
+/* ======= RESET ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f8a44, #7d00ff, #0d054b);
+    /* background: linear-gradient(135deg, #004d26, #0f8a44,#000000); */
+    background-attachment: fixed;
+    color: white;
+    animation: fadeBody 0.6s ease-in;
+}
+
+@keyframes fadeBody {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ======= HEADER ======= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    animation: headerLoad 0.8s ease forwards;
+}
+
+@keyframes headerLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #7d00ff;
+    transition: 0.3s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+header nav a:hover {
+    color: #7d00ff;
+}
+
+/* ======= MAIN ======= */
+main,
+Main {
+    padding: 120px 40px 60px;
+}
+
+/* ======= SCROLL REVEAL ======= */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======= SOBRE MIM ======= */
+/* #sobre {
+    width: 100%;
+    margin-left: auto;
+    text-align: justify;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #7d00ff;
+    border-right: 4px solid #0033ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+} */
+
+#sobre {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #7d00ff;
+    border-right: 4px solid #0033ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+
+#sobre p {
+    font-family: "Courier New", monospace;
+    white-space: pre-line;
+}
+
+#rosto {
+    width: 160px;
+    /* tamanho ideal para foto de perfil */
+    height: 160px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    /* deixa a foto redonda */
+    overflow: hidden;
+    /* impede que a imagem ultrapasse o círculo */
+    border: 4px solid #7d00ff;
+    /* borda combinando com o tema */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    animation: fadeProfile 1s ease;
+}
+
+#rosto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* corta a imagem sem distorcer */
+}
+
+/* Animação suave de entrada */
+@keyframes fadeProfile {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ======= FORMAÇÕES ======= */
+#formacoes {
+    margin-top: 50px;
+}
+
+#formacoes h2 {
+    margin-bottom: 20px;
+}
+
+#formacoes div {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: white;
+    opacity: 0.92;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ensino-medio {
+    background: #0033ff;
+}
+
+#ensino-tecnico {
+    background: #7d00ff;
+}
+
+#ensino-superior {
+    background: #000000;
+}
+
+#formacoes div:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ======= PROJETOS ======= */
+.projetos-grid div {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    opacity: 0.9;
+    color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projetos-grid div:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ======= LINGUAGENS ======= */
+.linguagens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.tech-card {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.tech-card img {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.tech-card span {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ======= CONTATO ======= */
+#contato {
+    margin-top: 50px;
+}
+
+#contato a,
+#contato p {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+/* ======= FOOTER ======= */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+}
